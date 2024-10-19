@@ -41,14 +41,19 @@ html {
 .navbar {
   background-color: transparent;
   padding: 1rem;
-  background-color: black;
+  position: fixed !important;
+  top: 0;
+  left: 0;
   width: 100%;
-  transition: 0.30s ease-in-out;
+  height: 70px;
+  z-index: 1000;
+  transition: 0.32s ease-in-out;
 }
 
 .nav-container {
   display: flex;
   align-items: center;
+  padding: 0 !important;
 }
 
 .navbar.scrolled {
@@ -135,10 +140,91 @@ html {
 }
 
 
+/* Banner */
+.banner {
+  min-height: 60vh;
+  overflow: hidden;
+  padding: 80px 20px 0px;
+  background-color: grey;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.intro-banner {
+  min-height: 300px;
+}
+
+.intro-left {
+  align-items: center !important;
+  justify-content: center !important;
+  padding-bottom: 45px;
+}
+
+.banner h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.banner h2 {
+  font-size: 2rem;
+}
+
+.banner .highlight {
+  color: var(--red);
+}
+
+.banner p {
+  font-size: 1.2rem;
+}
+
+.banner a {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--red);
+  border: none;
+  color: white !important;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.banner a:hover {
+  background-color: white;
+  color: var(--red) !important;
+}
+
+/* Right Side Image */
+
+.intro-right {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.profile-image {
+  max-width: 100%;
+  height: 100%;
+}
+
+/* Skills */
+
+/* Animations */
+
+
 @media (max-width: 768px) {
   .navbar .navbar-collapse {
     display: flex;
     flex-direction: column;
+    background-color: #0d0d0d;
+  }
+
+  .navbar {
+    background-color: #0d0d0d;
+  }
+
+  .nav-container {
+    max-width: 100% !important;
   }
 
   .nav-links {
@@ -161,5 +247,9 @@ html {
 
   .navbar .btn-primary {
     width: 100%;
+  }
+
+  .intro-left {
+    padding-bottom: 0;
   }
 }
