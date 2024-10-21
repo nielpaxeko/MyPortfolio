@@ -6,8 +6,6 @@ import profile from '../assets/images/Profile-transparent.png';
 
 
 export const Banner = () => {
-
-
     return (
         <section className="banner" id="home">
             <Container>
@@ -20,7 +18,7 @@ export const Banner = () => {
                                     <h1>Hi, I'm <span className="highlight">Edgar Pacheco</span></h1>
                                     <h2>A <span className="highlight">Web and Software Developer</span></h2>
                                     <p>
-                                    I am a dedicated software developer with a multicultural background and a passion for continuous learning and professional growth.
+                                        I am a dedicated software developer with a multicultural background and a passion for continuous learning and professional growth.
                                     </p>
                                     <a href="#contact">
                                         Let’s Connect <i className="bi bi-arrow-right-circle"></i>
