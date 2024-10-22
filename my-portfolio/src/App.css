@@ -37,6 +37,10 @@ html {
   font-family: Butler, 'sans-serif' !important;
 }
 
+section {
+  margin-top: 60px;
+}
+
 /* Navbar */
 .navbar {
   background-color: transparent;
@@ -116,6 +120,7 @@ html {
   transition: color 0.4s ease;
 }
 
+button,
 .navbar .btn-primary {
   background-color: var(--red);
   border: 1px solid white;
@@ -126,6 +131,7 @@ html {
 
 }
 
+button:hover,
 .navbar .btn-primary:hover {
   color: var(--red);
   background-color: white;
@@ -142,6 +148,7 @@ html {
 
 /* Banner */
 .banner {
+  margin-top: 0;
   min-height: 60vh;
   overflow: hidden;
   padding: 80px 20px 0px;
@@ -194,7 +201,7 @@ html {
   color: var(--red) !important;
 }
 
-/* Right Side Image */
+/* My Image */
 
 .intro-right {
   display: flex;
@@ -209,9 +216,9 @@ html {
 
 /* Skills */
 
-#skills {
+/* #skills {
   margin-top: 60px;
-}
+} */
 
 .skill-wheel {
   margin: auto;
@@ -219,10 +226,10 @@ html {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  animation: rotate 10s linear infinite;
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: rotate 10s linear infinite;
 }
 
 .skill-icon {
@@ -234,24 +241,16 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform .3s ease, filer .3s ease;
+  transition: transform .3s ease, filter .3s ease;
   transform-origin: center;
+
 }
 
 .skill-icon img {
   width: 30px;
   height: 30px;
-  transform: rotate(0deg); 
+  animation: counter-rotate 10s linear infinite !important;
 }
-
-/* .skill-icon:hover {
-  transform: scale(1.25);
-  filter: grayscale(0);
-}
-
-.skill-icon:not(:hover) {
-  filter: grayscale(100%);
-} */
 
 
 /* Animations */
@@ -260,12 +259,49 @@ html {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
-  
+
 }
 
+/* Contact Me */
+.contact-container {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
+}
+
+.right {
+  margin: auto;
+}
+
+.right h2 {
+  margin-bottom: 16px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid black;
+}
+
+.contact-form {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.contact-form .form-label {
+  font-weight: bold;
+}
+
+.contact-form textarea {
+  resize: none;
+}
 
 @media (max-width: 768px) {
   .navbar .navbar-collapse {
@@ -307,4 +343,18 @@ html {
   .intro-left {
     padding-bottom: 0;
   }
+
+  .contact-container {
+    width: 90% !important;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .contact-form,
+  .right {
+    width: 100%;
+  }
+
 }
