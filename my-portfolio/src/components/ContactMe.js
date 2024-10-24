@@ -4,7 +4,7 @@ import { Form, Button, Container, Row, Col, Image, Alert } from 'react-bootstrap
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import emailjs from 'emailjs-com';
-import sql from '../assets/images/sql-logo.png'
+import contactImage from '../assets/images/image.png'
 
 export const ContactMe = () => {
     const [formData, setFormData] = useState({
@@ -44,17 +44,15 @@ export const ContactMe = () => {
 
     return (
         <section id="contact">
-            <Container className="rounded contact-container">
-                <Row className="">
+            <Container className="img-fluid rounded-4 contact-container">
+                <Row>
                     {/* Left Div */}
-                    <Col lg={6} md={0} className="p-3 left">
-                        <div className="contact-image">
-                            <Image src={sql} alt="contact-img" className="img-fluid rounded" />
-                        </div>
+                    <Col lg={6} md={0} className="left p-0">
+                        <Image src={contactImage} alt="contact-img" className="rounded-4 contact-image" />
                     </Col>
                     {/* Right Div */}
-                    <Col lg={6} md={9} className="p-3 right">
-                        <h2 className="text-center" style={{color: "#d92323"}}>Contact Me</h2>
+                    <Col lg={6} className="right p-3">
+                        <h2 className="text-center mb-3" style={{ color: '#d92323', fontWeight: 'bold' }}>Let's Get in Touch</h2>
                         <Form onSubmit={handleSubmit} className="contact-form">
                             <Form.Group controlId="formName" className="mb-3">
                                 <Form.Label>Name</Form.Label>
@@ -65,6 +63,7 @@ export const ContactMe = () => {
                                     value={formData.name}
                                     onChange={handleInputChange}
                                     required
+                                    className="rounded-4"
                                 />
                             </Form.Group>
 
@@ -77,6 +76,7 @@ export const ContactMe = () => {
                                     value={formData.email}
                                     onChange={handleInputChange}
                                     required
+                                    className="rounded-4"
                                 />
                             </Form.Group>
 
@@ -89,6 +89,7 @@ export const ContactMe = () => {
                                     value={formData.subject}
                                     onChange={handleInputChange}
                                     required
+                                    className="rounded-4"
                                 />
                             </Form.Group>
 
@@ -102,15 +103,17 @@ export const ContactMe = () => {
                                     value={formData.message}
                                     onChange={handleInputChange}
                                     required
+                                    className="rounded"
                                 />
                             </Form.Group>
+
                             <div className="d-flex justify-content-center">
                                 <button className="rounded-pill" variant="primary" type="submit">
                                     Send Message
                                 </button>
                             </div>
-                            {isSent && <Alert variant="success" className="mt-3">Message sent successfully!</Alert>}
-                            {errorMessage && <Alert variant="danger" className="mt-3">{errorMessage}</Alert>}
+                            {isSent && <Alert variant="success" className="mt-3 text-center">Message sent successfully!</Alert>}
+                            {errorMessage && <Alert variant="danger" className="mt-3 text-center">{errorMessage}</Alert>}
                         </Form>
                     </Col>
                 </Row>
@@ -119,5 +122,3 @@ export const ContactMe = () => {
     )
 
 }
-
-export default ContactMe;

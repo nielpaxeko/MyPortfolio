@@ -60,7 +60,7 @@ export const NavBar = () => {
                                 <a href='https://www.linkedin.com/in/edgar-pacheco-verdugo-94437130a'><i className="bi bi-linkedin"></i></a>
                                 <a href='https://github.com/nielpaxeko'><i className="bi bi-github"></i></a>
                             </div>
-                            <Button className='rounded-pill' onClick={() => console.log('connect')}>Contact Me</Button>
+                            <Button className='rounded-pill' href='#contact'>Contact Me</Button>
                         </span>
                     </Navbar.Collapse>
                 </Container>

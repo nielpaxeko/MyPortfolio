@@ -62,7 +62,7 @@ export const Skills = () => {
 
     return (
         <section id='skills'>
-            <h1 className='text-center'>My Skills</h1>
+            <h1 className='text-center mb-3'>My Skills</h1>
             <div className="skill-wheel">
                 {skills.map((skill, index) => (
                     <div className="skill-icon" key={index}>

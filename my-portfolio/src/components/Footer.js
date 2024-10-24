@@ -1,23 +1,41 @@
 import React from 'react';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Footer = () => {
     return (
         <section id='footer'>
-            <footer>
-                <div className="waves">
-                    <div className="wave" id="wave1"></div>
-                    <div className="wave" id="wave2"></div>
-                    <div className="wave" id="wave3"></div>
-                    <div className="wave" id="wave4"></div>
+            <footer className="text-center text-lg-start bg-body-tertiary text-muted p-5">
+                <div className="container text-center text-md-start">
+                    <div className="row footer-row">
+                        <div className="col-md-3 mb-4 footer-box">
+                            <h6 className="text-uppercase fw-bold mb-3 red-text">
+                                Projects
+                            </h6>
+                            <p>
+                                <a href="#!" className="text-reset">Rover</a>
+                            </p>
+                            <p>
+                                <a href="#!" className="text-reset">VayKay</a>
+                            </p>
+                            <p>
+                                <a href="#!" className="text-reset">Vue</a>
+                            </p>
+                        </div>
+                        <div className="col-md-3 mb-4 footer-box">
+                            <h6 className="text-uppercase fw-bold mb-3 red-text">Contact Info</h6>
+                            <p><i className="bi bi-house-fill"></i> Selden, NY 11784, US</p>
+                            <p><i className="bi bi-envelope-at-fill"></i> edgar.pacheco.vgo@gmail.com</p>
+                            <p><i className="bi bi-telephone-fill"></i> +1 619 678-7505</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="text-center p-4">
+                    © 2024 Edgar Pacheco
                 </div>
 
-                <ul className="menu">
-                    <li><a href="#banner">Home</a></li>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#contact">Contact Me</a></li>
-                </ul>
-                <p className="copyright">© 2024 Edgar Pacheco</p>
             </footer>
+
         </section>
 
     );
