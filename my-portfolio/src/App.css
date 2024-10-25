@@ -220,9 +220,6 @@ button:hover,
 
 /* Skills */
 
-/* #skills {
-  margin-top: 60px;
-} */
 
 .skill-wheel {
   margin: auto;
@@ -247,27 +244,57 @@ button:hover,
   align-items: center;
   transition: transform .3s ease, filter .3s ease;
   transform-origin: center;
-
+ 
 }
 
 .skill-icon img {
   width: 30px;
   height: 30px;
-  animation: counter-rotate 10s linear infinite !important;
+  animation: counter-rotate 10s linear infinite;
+}
+
+.skill-icon img:hover {
+  animation-play-state: paused; 
+  animation: none !important;
+  transform: rotate(0deg);
+}
+
+.skill-center:hover {
+  animation-play-state: paused; 
+  animation: none !important;
+  transform: rotate(0deg);
+}
+
+.skill-center {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  pointer-events: none;
+  animation: counter-rotate 10s linear infinite;
+  text-align: center;
+
 }
 
 
 /* Animations */
 
 @keyframes rotate {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-
-  to {
+  100% {
     transform: rotate(360deg);
   }
+}
 
+@keyframes counter-rotate {
+ 0% {
+   transform: rotate(0deg);
+ }
+ 100% {
+   transform: rotate(-360deg);
+ }
 }
 
 /* Contact Me */
@@ -275,15 +302,16 @@ button:hover,
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.right {
+.left {
   margin: auto;
 }
 
-.right h2 {
+.left h2 {
   margin-bottom: 16px;
+  font-size: 2.5rem;
 }
 
-.left {
+.right {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -375,7 +403,8 @@ button:hover,
 
 /* Large */
 @media (max-width: 992px) {
-  .left {
+  .right {
     display: none;
   }
 }
+

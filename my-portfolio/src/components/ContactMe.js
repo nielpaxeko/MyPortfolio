@@ -4,7 +4,7 @@ import { Form, Button, Container, Row, Col, Image, Alert } from 'react-bootstrap
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import emailjs from 'emailjs-com';
-import contactImage from '../assets/images/image.png'
+import contactImage from '../assets/images/contact-img.png'
 
 export const ContactMe = () => {
     const [formData, setFormData] = useState({
@@ -46,12 +46,9 @@ export const ContactMe = () => {
         <section id="contact">
             <Container className="img-fluid rounded-4 contact-container">
                 <Row>
+                  
                     {/* Left Div */}
-                    <Col lg={6} md={0} className="left p-0">
-                        <Image src={contactImage} alt="contact-img" className="rounded-4 contact-image" />
-                    </Col>
-                    {/* Right Div */}
-                    <Col lg={6} className="right p-3">
+                    <Col lg={6} className="left p-4">
                         <h2 className="text-center mb-3" style={{ color: '#d92323', fontWeight: 'bold' }}>Let's Get in Touch</h2>
                         <Form onSubmit={handleSubmit} className="contact-form">
                             <Form.Group controlId="formName" className="mb-3">
@@ -115,6 +112,10 @@ export const ContactMe = () => {
                             {isSent && <Alert variant="success" className="mt-3 text-center">Message sent successfully!</Alert>}
                             {errorMessage && <Alert variant="danger" className="mt-3 text-center">{errorMessage}</Alert>}
                         </Form>
+                    </Col>
+                      {/* Right Div */}
+                      <Col lg={6} md={0} className="right p-0">
+                        <Image src={contactImage} alt="contact-img" className="rounded-4 contact-image" />
                     </Col>
                 </Row>
             </Container>
