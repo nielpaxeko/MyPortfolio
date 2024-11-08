@@ -44,12 +44,12 @@ export const ContactMe = () => {
 
     return (
         <section id="contact">
+         <h2 className="text-center mb-5 section-title purple-text">Contact Me</h2>
             <Container className="img-fluid rounded-4 contact-container">
                 <Row>
-                  
                     {/* Left Div */}
                     <Col lg={6} className="left p-4">
-                        <h2 className="text-center mb-3" style={{ color: '#d92323', fontWeight: 'bold' }}>Let's Get in Touch</h2>
+                        <h2 className="text-center mb-3 pink-text" style={{ fontWeight: 'bold' }}>Let's Get in Touch</h2>
                         <Form onSubmit={handleSubmit} className="contact-form">
                             <Form.Group controlId="formName" className="mb-3">
                                 <Form.Label>Name</Form.Label>
@@ -60,7 +60,7 @@ export const ContactMe = () => {
                                     value={formData.name}
                                     onChange={handleInputChange}
                                     required
-                                    className="rounded-4"
+                                    className="rounded-2"
                                 />
                             </Form.Group>
 
@@ -73,7 +73,7 @@ export const ContactMe = () => {
                                     value={formData.email}
                                     onChange={handleInputChange}
                                     required
-                                    className="rounded-4"
+                                    className="rounded-2"
                                 />
                             </Form.Group>
 
@@ -86,7 +86,7 @@ export const ContactMe = () => {
                                     value={formData.subject}
                                     onChange={handleInputChange}
                                     required
-                                    className="rounded-4"
+                                    className="rounded-2"
                                 />
                             </Form.Group>
 
@@ -105,7 +105,7 @@ export const ContactMe = () => {
                             </Form.Group>
 
                             <div className="d-flex justify-content-center">
-                                <button className="rounded-pill" variant="primary" type="submit">
+                                <button className="rounded-pill btn-pink"  type="submit">
                                     Send Message
                                 </button>
                             </div>
@@ -113,9 +113,9 @@ export const ContactMe = () => {
                             {errorMessage && <Alert variant="danger" className="mt-3 text-center">{errorMessage}</Alert>}
                         </Form>
                     </Col>
-                      {/* Right Div */}
-                      <Col lg={6} md={0} className="right p-0">
-                        <Image src={contactImage} alt="contact-img" className="rounded-4 contact-image" />
+                    {/* Right Div */}
+                    <Col lg={6} md={0} className="right p-0">
+                        <Image src={contactImage} alt="contact-img" className="contact-image" />
                     </Col>
                 </Row>
             </Container>
