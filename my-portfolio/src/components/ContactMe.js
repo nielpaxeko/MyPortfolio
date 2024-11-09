@@ -44,7 +44,7 @@ export const ContactMe = () => {
 
     return (
         <section id="contact">
-         <h2 className="text-center mb-5 section-title purple-text">Contact Me</h2>
+         <h2 className="text-center mb-5 section-title pink-text">Contact Me</h2>
             <Container className="img-fluid rounded-4 contact-container">
                 <Row>
                     {/* Left Div */}

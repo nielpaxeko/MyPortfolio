@@ -20,7 +20,7 @@ export const Skills = () => {
       { name: 'Javascript', image: Javascript, color: '#F0DB4F' },
       { name: 'NodeJS', image: NodeJS, color: '#53A040' },
       { name: 'React', image: React, color: '#61DBFB' },
-      { name: 'Python', image: Python, color: '#306998' },
+      { name: 'Python', image: Python, color: '#2596be' },
       { name: 'Java', image: Java, color: '#CE3737' },
       { name: 'SQL', image: SQL, color: '#BE63F9' },
     ],
@@ -36,7 +36,7 @@ export const Skills = () => {
     const skillIcons = document.querySelectorAll('.skill-icon');
     const totalSkills = skillIcons.length;
     const radius = 180;
-    const animationSpeed = 0.01;
+    const animationSpeed = 0.0075;
 
     const updatePositions = () => {
       skillIcons.forEach((icon, index) => {

@@ -10,7 +10,7 @@ export const Footer = () => {
                     <div className="row footer-row">
                         <div className="col-md-3 mb-4 footer-box">
                             <h6 className="text-uppercase fw-bold mb-3 red-text">
-                                Projects
+                                Quicklinks
                             </h6>
                             <p>
                                 <a href="#!" className="text-reset">Rover</a>
@@ -19,7 +19,7 @@ export const Footer = () => {
                                 <a href="#!" className="text-reset">VayKay</a>
                             </p>
                             <p>
-                                <a href="#!" className="text-reset">Vue</a>
+                                <a href="#!" className="text-reset">Globetrotter</a>
                             </p>
                         </div>
                         <div className="col-md-3 mb-4 footer-box">

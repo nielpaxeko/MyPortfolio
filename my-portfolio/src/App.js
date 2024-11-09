@@ -1,6 +1,7 @@
 import './App.css';
 import { NavBar } from './components/NavBar.js';
 import { Banner } from './components/Banner.js';
+import { AboutMe } from './components/About.js';
 import { Skills } from './components/Skills.js'
 import { ProjectsSection } from './components/Projects.js'
 import { ContactMe } from './components/ContactMe.js'
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Banner />
+      <AboutMe />
       <Skills />
       <ProjectsSection />
       <ContactMe />
