@@ -13,6 +13,7 @@ import Java from '../assets/images/java-logo.png';
 import SQL from '../assets/images/sql-logo.png';
 import spin from '../assets/images/spin-me.webp';
 // Language Icons
+import world from '../assets/images/languages/world.png';
 import spanish from '../assets/images/languages/spanish.png';
 import english from '../assets/images/languages/english.png';
 import italian from '../assets/images/languages/italian.png';
@@ -20,17 +21,23 @@ import japanese from '../assets/images/languages/japanese.png';
 import french from '../assets/images/languages/french.png';
 import german from '../assets/images/languages/german.png';
 // Nation Icons
-import mondstadt from '../assets/images/languages/mondstadt.png';
+import natlan from '../assets/images/nations/natlan.png';
+import penacony from '../assets/images/nations/penacony.png';
+import fatui from '../assets/images/nations/fatui.png';
+import inazuma from '../assets/images/nations/inazuma.png';
+import fontaine from '../assets/images/nations/fontaine.png';
+import mondstadt from '../assets/images/nations/mondstadt.png';
 
 // Languages with properties: name, color, proficiency
 const languages = [
-  { name: 'Spanish', color: '#C70039', icon: spanish, nation: mondstadt, proficiency: 5 },
-  { name: 'English', color: '#3A7D44', icon: english, proficiency: 5 },
-  { name: 'Italian', color: '#6D9EEB', icon: italian, proficiency: 4 },
-  { name: 'Japanese', color: '#9479C0', icon: japanese, proficiency: 3.5 },
-  { name: 'French', color: '#CE3737', icon: french, proficiency: 4 },
-  { name: 'German', color: '#28B463', icon: german, proficiency: 2.5 },
+  { name: 'ESP', language: 'Spanish', color: '#FEEFEB', text: '#EF7A35', icon: spanish, nation: natlan, proficiency: 5 },
+  { name: 'ENG', language: 'English', color: '#8693A2', text: '#0E3463', icon: english, nation: penacony, proficiency: 5 },
+  { name: 'ITA', language: 'Italian', color: '#3A7D44', text: '#0AB34C', icon: italian, nation: fatui, proficiency: 4 },
+  { name: '日本語', language: 'Japanese', color: '#F65FF6', text: '#B20DBC', icon: japanese, nation: inazuma, proficiency: 3.5 },
+  { name: 'FRE', language: 'French', color: '#A8EFF4', text: '#75BFD4', icon: french, nation: fontaine, proficiency: 4 },
+  { name: 'DEU', language: 'German', color: '#C7EAE2', text: '#0CC79B', icon: german, nation: mondstadt, proficiency: 2.5 },
 ];
+
 
 export const Skills = () => {
   const skills = useMemo(
@@ -48,6 +55,8 @@ export const Skills = () => {
   );
 
   const [hoveredSkill, setHoveredSkill] = useState({ name: '', color: '#333' });
+  const [hoveredLanguage, setHoveredLanguage] = useState({ name: 'My Languages', color: '#b71e48', icon: world });
+
   const [isPaused, setIsPaused] = useState(false);
   const angleRef = useRef(0);
   const animationRef = useRef();
@@ -119,27 +128,37 @@ export const Skills = () => {
           const bookStyle = {
             backgroundColor: language.color,
             height: `${language.proficiency * 50}px`,
-            transform: language.name === 'Spanish' ? 'translate(-16px, -2.5px) rotate(+7.5deg)' : 'none',
+            transform:
+              language.name === 'ESP'
+                ? 'translate(-16px, -2.5px) rotate(+7.5deg)'
+                : language.name === 'DEU'
+                  ? 'translate(8px, -2px) rotate(-7.5deg)'
+                  : 'none',
+            color: language.text,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             writingMode: 'vertical-lr',
-          }; 
+          };
 
           return (
-            <div className="book" key={index} style={bookStyle}>
-              {language.name}
-              <img src={language.icon} alt={`${language.name} icon`} style={{  marginTop: '4px', width: '30px', height: '30px' }} />
+            <div className="book" key={index} style={bookStyle} onMouseOut={() => setHoveredLanguage({ name: 'My Languages', color: '#b71e48', icon: world })} onMouseOver={() => setHoveredLanguage({ name: language.language, color: language.text, icon: language.icon })}>
+              <p className='book-name'>
+                {language.name}
+                <img src={language.nation} alt={`${language.name} icon`} style={{ marginTop: '4px', width: '30px', height: '30px' }} />
+              </p>
             </div>
           );
-        })}
-      </div>
+        })
+        }
+      </div >
     );
   };
 
   return (
     <section id="skills">
-      <h2 className="text-center mb-5 section-title red-text">My Skills</h2>
+      <h2 className="text-center section-title red-text">My Skills</h2>
+      <h3 className='text-center purple-text mb-5'>Here's what I can do!</h3>
       <Row>
         <Col lg={6} className="technical-skills mb-lg-0">
           <div className="skill-wheel">
@@ -148,7 +167,7 @@ export const Skills = () => {
                 <Image src={skill.image} alt={skill.name} />
               </div>
             ))}
-            <div className="skill-center" style={{ color: hoveredSkill.color }}>
+            <div className="skill-center" style={{ fontSize: '30px', fontWeight: 'bold', color: hoveredSkill.color }}>
               {hoveredSkill.name ? hoveredSkill.name : (
                 <img src={spin} alt="Skill Animation" style={{ width: '100px', height: '100px' }} />
               )}
@@ -156,6 +175,13 @@ export const Skills = () => {
           </div>
         </Col>
         <Col lg={6} className='linguistic-skills mt-lg-0'>
+          {hoveredLanguage.name && (
+            <div className="hovered-language" style={{ fontSize: '30px', fontWeight: 'bold', color: hoveredLanguage.color }}>
+              {hoveredLanguage.name}
+              <img src={hoveredLanguage.icon} alt={`${hoveredLanguage.name} icon`} style={{ width: '40px', height: '40px' }} />
+            </div>
+          )}
+
           {renderBookshelf()}
         </Col>
       </Row>

@@ -33,7 +33,7 @@ export const AboutMe = () => {
                     </Col>
                     <Col xs={10} md={6} className='m-auto'>
                         <div className='about-text-container'>
-                            <h2 className="purple-text mb-4 section-title">About Me</h2>
+                            <h2 className="red-text mb-4 section-title">About Me</h2>
                             <p className='about-text'>
                                 I am a software developer with a strong educational background in computer science and hands-on
                                 experience in full-stack development, including front-end and back-end technologies such as React,

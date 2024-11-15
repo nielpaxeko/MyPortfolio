@@ -39,6 +39,14 @@ html {
   font-family: Butler, 'sans-serif' !important;
 }
 
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: grey;
+  color: #ffffff;
+}
+
+
+
 section {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -137,7 +145,8 @@ section {
   border: none;
 }
 
-.social-icon a {
+.social-icon a,
+.social-icon i {
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -155,7 +164,8 @@ section {
 }
 
 /* Hover effect */
-.social-icon a:hover {
+.social-icon a:hover,
+.social-icon i:hover {
   background-color: var(--red);
 }
 
@@ -221,6 +231,9 @@ button:hover,
   flex-grow: 1;
 }
 
+/* Dark Mode */
+
+
 
 /* Banner */
 .banner {
@@ -237,6 +250,8 @@ button:hover,
 .intro-banner {
   min-height: 300px;
 }
+
+.intro-text {}
 
 .intro-left {
   align-items: center !important;
@@ -275,6 +290,42 @@ button:hover,
 .banner a:hover {
   background-color: white;
   color: var(--red) !important;
+}
+
+#connect-btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  transition: color .3s, background-color .3s border-color 0.3s;
+  margin-bottom: 10px;
+}
+
+#connect-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+#connect-btn:hover::before {
+  transform: translateX(0);
+}
+
+#connect-btn i,
+#connect-btn span {
+  position: relative;
+  z-index: 1;
 }
 
 /* About */
@@ -396,10 +447,13 @@ button:hover,
 .technical-skills {
   margin-bottom: 30px;
 }
+
 .linguistic-skills {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
 }
 
 .bookshelf {
@@ -407,23 +461,57 @@ button:hover,
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 0px 45px;
-  border-bottom: 10px solid burlywood;
+  border-bottom: 10px solid #8b5e3c;
+  width: 500px;
+  margin: auto;
+}
+
+.book-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 125%;
+  height: 80%;
+  border-top: 5px solid #8b5e3c;
+  border-bottom: 5px solid #8b5e3c;
+  margin-bottom: 0;
 }
 
 .book {
+  position: relative;
   width: 50px;
-  border-radius: 5px;
-  transition: transform 0.3s;
+  border-radius: 2px;
+  transition: transform 0.3s, box-shadow 0.3s;
   font-weight: bold;
-  padding: 10px;
+  padding: 5px;
   font-family: 'Times New Roman', Times, serif;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
 }
 
 .book:hover {
-  transform: scale(1.1);
+  transform: translateY(-10px) !important;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.book::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px 0 0 2px;
+}
+
+.hovered-language {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  margin: auto;
 }
 
 
@@ -504,6 +592,9 @@ button:hover,
 }
 
 /* Footer */
+#footer {
+  padding-bottom: 0px;
+}
 
 .footer-box {
   min-width: 300px;
@@ -578,6 +669,8 @@ button:hover,
     margin-top: 20px;
   }
 
+
+
 }
 
 /* Large */
@@ -588,5 +681,9 @@ button:hover,
 
   .about-text {
     font-size: .95rem;
+  }
+
+  .hovered-language {
+    margin-bottom: 20px;
   }
 }

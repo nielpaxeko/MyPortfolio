@@ -3,11 +3,26 @@ import { Container, Row, Col } from "react-bootstrap";
 import TrackVisibility from 'react-on-screen';
 import laptopFrame from '../assets/images/laptopFrame.png';
 
-
 export const Banner = () => {
     const [xAxis, setXAxis] = useState(0);
     const [yAxis, setYAxis] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
+    const [nameText, setNameText] = useState("");
+    const [titleText, setTitleText] = useState("");
+
+    const typeWriter = (text, setState, delay = 100) => {
+        let i = 0;
+        const interval = setInterval(() => {
+            setState(text.slice(0, i + 1));
+            i++;
+            if (i === text.length) clearInterval(interval);
+        }, delay);
+    };
+
+    useEffect(() => {
+        typeWriter("<Edgar Pacheco>", setNameText);
+        setTimeout(() => typeWriter("<Software Developer>", setTitleText), 15 * 100);
+    }, []);
 
     const handleMouseMove = (e) => {
         if (isHovered) {
@@ -34,43 +49,28 @@ export const Banner = () => {
                     <Col className="intro-left d-flex" xs={12} md={6} xl={7}>
                         <TrackVisibility>
                             {({ isVisible }) => (
-                                <div className={isVisible ? "animated fadeInLeft" : ""}>
-                                    <h1>Hi, I'm <span className="highlight">Edgar Pacheco</span></h1>
-                                    <h2>A <span className="highlight">Web and Software Developer</span></h2>
-                                    <p>
-                                        I am software developer with a multicultural background and a passion for continuous learning and professional growth.
-                                    </p>
-                                    <a href="#contact" id="connect-btn">
-                                        Let’s Connect <i className="bi bi-arrow-right-circle"></i>
+                                <>
+                                    <h1 className="intro-text">Hi, My name is <span className="highlight mb-1">{nameText}</span></h1>
+                                    <h2 className="intro-text" style={{ fontWeight: 'bold' }}>I'm a <span className="highlight">{titleText}</span></h2>
+                                    <a href="#contact" id="connect-btn" className="mt-1" >
+                                        <span>Let’s Connect</span> <i className="bi bi-arrow-right-circle connect-text"></i>
                                     </a>
-                                </div>
+                                </>
                             )}
                         </TrackVisibility>
                     </Col>
 
                     {/* Right side: Image section */}
                     <Col className="intro-right m-auto" xs={12} md={6} xl={5}>
-                        <TrackVisibility>
-                            {({ isVisible }) => (
-                                <div 
-                                    className={isVisible ? "animated fadeInRight" : ""}
-                                    onMouseMove={handleMouseMove}
-                                    onMouseOver={handleMouseOver}
-                                    onMouseOut={handleMouseOut}
-                                >
-                                    <div className="profile-image-container">
-                                        <img
-                                            src={laptopFrame}
-                                            alt="Profile"
-                                            className="profile-image"
-                                            style={{
-                                                transform: `rotateY(${xAxis}deg) rotateX(${yAxis}deg) scale(1.1)`,
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                            )}
-                        </TrackVisibility>
+                        <div onMouseMove={handleMouseMove} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                            <div className="profile-image-container">
+                                <img src={laptopFrame} alt="Profile" className="profile-image"
+                                    style={{
+                                        transform: `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`,
+                                    }}
+                                />
+                            </div>
+                        </div>
                     </Col>
                 </Row>
             </Container>

@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router } from "react-router-dom";
 
 export const NavBar = () => {
-
     const [activeLink, setActiveLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
+    const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
         const onScroll = () => {
@@ -19,8 +19,19 @@ export const NavBar = () => {
         };
         window.addEventListener("scroll", onScroll);
 
+        // Cleanup on component unmount
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
+
+    // Toggle dark mode
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+        if (!darkMode) {
+            document.body.classList.add("dark-mode");
+        } else {
+            document.body.classList.remove("dark-mode");
+        }
+    };
 
     const onUpdateActiveLink = (value) => {
         setActiveLink(value);
@@ -42,6 +53,12 @@ export const NavBar = () => {
                                 Home
                             </Nav.Link>
                             <Nav.Link
+                                href="#about"
+                                className={activeLink === "about" ? 'active navbar-link' : 'navbar-link'}
+                                onClick={() => onUpdateActiveLink('about')}>
+                                About
+                            </Nav.Link>
+                            <Nav.Link
                                 href="#skills"
                                 className={activeLink === "skills" ? 'active navbar-link' : 'navbar-link'}
                                 onClick={() => onUpdateActiveLink('skills')}>
@@ -56,6 +73,12 @@ export const NavBar = () => {
                         </Nav>
                         <span className='navbar-text'>
                             <div className='social-icon'>
+                                <i
+                                    className={`bi ${darkMode ? 'bi-sun-fill' : 'bi-moon-stars-fill'}`}
+                                    id="dark-mode-toggle"
+                                    onClick={toggleDarkMode}
+                                    style={{ cursor: 'pointer' }}
+                                ></i>
                                 <a href='https://www.instagram.com/nielpaxeko/'><i className="bi bi-instagram"></i></a>
                                 <a href='https://www.linkedin.com/in/edgar-pacheco-verdugo-94437130a'><i className="bi bi-linkedin"></i></a>
                                 <a href='https://github.com/nielpaxeko'><i className="bi bi-github"></i></a>
@@ -66,9 +89,7 @@ export const NavBar = () => {
                 </Container>
             </Navbar>
         </Router>
-
     );
 };
 
 export default NavBar;
-
