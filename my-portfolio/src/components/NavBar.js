@@ -73,12 +73,12 @@ export const NavBar = () => {
                         </Nav>
                         <span className='navbar-text'>
                             <div className='social-icon'>
-                                <i
+                                {/* <i
                                     className={`bi ${darkMode ? 'bi-sun-fill' : 'bi-moon-stars-fill'}`}
                                     id="dark-mode-toggle"
                                     onClick={toggleDarkMode}
                                     style={{ cursor: 'pointer' }}
-                                ></i>
+                                ></i> */}
                                 <a href='https://www.instagram.com/nielpaxeko/'><i className="bi bi-instagram"></i></a>
                                 <a href='https://www.linkedin.com/in/edgar-pacheco-verdugo-94437130a'><i className="bi bi-linkedin"></i></a>
                                 <a href='https://github.com/nielpaxeko'><i className="bi bi-github"></i></a>

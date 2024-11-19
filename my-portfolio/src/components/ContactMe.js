@@ -44,7 +44,8 @@ export const ContactMe = () => {
 
     return (
         <section id="contact">
-         <h2 className="text-center mb-5 section-title pink-text">Contact Me</h2>
+            <h2 className="text-center section-title red-text">Contact Me</h2>
+            <h3 className='text-center pink-text mb-5 subtitle'>The Road Awaits, Let's connect and take the first step!</h3>
             <Container className="img-fluid rounded-4 contact-container">
                 <Row>
                     {/* Left Div */}
@@ -105,7 +106,7 @@ export const ContactMe = () => {
                             </Form.Group>
 
                             <div className="d-flex justify-content-center">
-                                <button className="rounded-pill btn-pink"  type="submit">
+                                <button className="rounded-pill btn-pink" type="submit">
                                     Send Message
                                 </button>
                             </div>

@@ -12,12 +12,19 @@ const images = importAll(require.context('../assets/photos', false, /\.(png|jpe?
 export const AboutMe = () => {
     return (
         <section id="about">
+            <h2 className="text-center section-title red-text">About Me</h2>
+            <h3 className='text-center pink-text mb-5 subtitle'>Every journey begins with a single step!</h3>
             <Container>
                 <Row>
                     <Col xs={0} md={6}>
                         {/* Image Slider */}
                         <div className="image-slider-container">
-                            <div className="notch"></div>
+                            <div className="notch">
+                                <span className="pill-sensor"></span>
+                                <span className="pill-camera"></span>
+
+                            </div>
+
                             <Carousel>
                                 {images.map((image, index) => (
                                     <Carousel.Item key={index}>
@@ -33,7 +40,6 @@ export const AboutMe = () => {
                     </Col>
                     <Col xs={10} md={6} className='m-auto'>
                         <div className='about-text-container'>
-                            <h2 className="red-text mb-4 section-title">About Me</h2>
                             <p className='about-text'>
                                 I am a software developer with a strong educational background in computer science and hands-on
                                 experience in full-stack development, including front-end and back-end technologies such as React,

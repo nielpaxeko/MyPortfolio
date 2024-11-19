@@ -29,7 +29,8 @@ export const ProjectsSection = () => {
     return (
         <section id="projects">
             <Container>
-                <h2 className="text-center mb-5 section-title red-text">My Projects</h2>
+                <h2 className="text-center section-title red-text">Academic Portfolio</h2>
+                <h3 className='text-center pink-text mb-5 subtitle'>Milestones Along the Way</h3>
                 <Row>
                     {projects.map((project) => (
                         <Col key={project.id} sm={12} md={6} lg={4} className="mb-4 card-col">
