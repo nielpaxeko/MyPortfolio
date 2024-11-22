@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import TrackVisibility from 'react-on-screen';
-import laptopFrame from '../assets/images/laptopFrame.png';
+import memoji from '../assets/images/memoji.png';
 
 export const Banner = () => {
-    const [xAxis, setXAxis] = useState(0);
-    const [yAxis, setYAxis] = useState(0);
-    const [isHovered, setIsHovered] = useState(false);
     const [nameText, setNameText] = useState("");
     const [titleText, setTitleText] = useState("");
 
@@ -21,25 +18,8 @@ export const Banner = () => {
 
     useEffect(() => {
         typeWriter("<Edgar Pacheco>", setNameText);
-        setTimeout(() => typeWriter("<Software Developer>", setTitleText), 15 * 100);
+        setTimeout(() => typeWriter("<Software and Web Developer>", setTitleText), 15 * 100);
     }, []);
-
-    const handleMouseMove = (e) => {
-        if (isHovered) {
-            setXAxis((e.clientX / window.innerWidth) * 60 - 30);
-            setYAxis((e.clientY / window.innerHeight) * 60 - 30);
-        }
-    };
-
-    const handleMouseOver = () => {
-        setIsHovered(true);
-    };
-
-    const handleMouseOut = () => {
-        setIsHovered(false);
-        setXAxis(0);
-        setYAxis(0);
-    };
 
     return (
         <section className="banner" id="home">
@@ -52,6 +32,7 @@ export const Banner = () => {
                                 <>
                                     <h1 className="intro-text">Hi, My name is <span className="highlight mb-1">{nameText}</span></h1>
                                     <h2 className="intro-text" style={{ fontWeight: 'bold' }}>I'm a <span className="highlight">{titleText}</span></h2>
+                                    <h2 className="intro-text" style={{ fontWeight: 'bold' }}>I specialize in building dynamic web applications</h2>
                                     <a href="#contact" id="connect-btn" className="mt-1" >
                                         <span>Let’s Connect</span> <i className="bi bi-arrow-right-circle connect-text"></i>
                                     </a>
@@ -61,15 +42,9 @@ export const Banner = () => {
                     </Col>
 
                     {/* Right side: Image section */}
-                    <Col className="intro-right m-auto" xs={12} md={6} xl={5}>
-                        <div onMouseMove={handleMouseMove} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-                            <div className="profile-image-container">
-                                <img src={laptopFrame} alt="Profile" className="profile-image"
-                                    style={{
-                                        transform: `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`,
-                                    }}
-                                />
-                            </div>
+                    <Col className="intro-right" xs={12} md={6} xl={5}>
+                        <div className="profile-image-container">
+                            <img src={memoji} alt="Profile" className="profile-image" />
                         </div>
                     </Col>
                 </Row>

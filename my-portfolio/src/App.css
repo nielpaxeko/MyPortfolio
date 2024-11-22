@@ -5,8 +5,8 @@
   --gray: rgba(217, 217, 217, .1);
   --playful-font: "PlayfulDisplay";
   --butler-font: "Butler";
-  --noto-font: "Noto";
   --lato-font: "Lato";
+  --campana-font: "Campana";
 }
 
 /* My Fonts */
@@ -21,14 +21,15 @@
 }
 
 @font-face {
-  font-family: Noto;
-  src: url('./assets/fonts/NotoSansHans-Medium.otf');
-}
-
-@font-face {
   font-family: Lato;
   src: url('./assets/fonts/Lato-Regular.ttf');
 }
+
+@font-face {
+  font-family: Campana;
+  src: url('./assets/fonts/CampanaScript_PERSONAL_USE_ONLY.otf');
+}
+
 
 
 /* Default CSS */
@@ -46,13 +47,15 @@ html {
   overflow: hidden;
 }
 
+.bi {
+  vertical-align: middle;
+}
+
 /* Dark Mode Styles */
 body.dark-mode {
   background-color: grey;
   color: #ffffff;
 }
-
-
 
 section {
   padding-top: 30px;
@@ -60,8 +63,12 @@ section {
 }
 
 .section-title {
-  font-size: 2.25rem;
-  font-weight: bolder;
+  font-size: 4rem;
+  font-family: cursive;
+  font-family: var(--campana-font);
+}
+
+.subtitle {
   font-family: var(--playful-font);
 }
 
@@ -151,6 +158,8 @@ section {
 
 .navbar-toggler {
   border: none;
+  margin-bottom: 3px;
+  margin-left: 3px;
 }
 
 .social-icon a,
@@ -167,7 +176,6 @@ section {
   color: #f0f0f0 !important;
   background-color: transparent;
   margin: 0 0.5rem;
-  transition: all 0.4s ease;
   position: relative;
 }
 
@@ -259,7 +267,9 @@ button:hover,
   min-height: 300px;
 }
 
-.intro-text {}
+.intro-text {
+  font-family: var(--playful-font);
+}
 
 .intro-left {
   align-items: center !important;
@@ -278,6 +288,7 @@ button:hover,
 
 .banner .highlight {
   color: var(--red);
+  font-family: monospace;
 }
 
 .banner p {
@@ -348,8 +359,9 @@ button:hover,
 }
 
 .about-text {
-  font-size: 1.25rem;
+  font-size: 1.29rem;
   margin-bottom: 0px;
+  font-family: var(--lato-font);
 }
 
 .image-slider-container {
@@ -414,15 +426,12 @@ button:hover,
   max-width: 100%;
   height: 100%;
   background: transparent;
+  transition: transform 0.2s ease-in-out;
 }
 
 .profile-image-container {
   perspective: 900px;
   perspective-origin: center;
-}
-
-.profile-image {
-  transition: transform 0.2s ease-in-out;
 }
 
 /* Skills */
@@ -537,16 +546,23 @@ button:hover,
 }
 
 .hovered-language {
-  gap: 5px;
+  gap: 10px;
   display: flex;
   align-items: center;
-  margin: auto;
-  font-family: var(--butler-font);
+  text-align: center;
+  font-family: var(--campana-font);
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
 }
 
+.hovered-language img {
+  display: inline-block;
+  vertical-align: middle;
+
+}
 
 /* Projects */
-
 .card {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -578,11 +594,15 @@ button:hover,
   font-weight: bold;
 }
 
+.project-link {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* Contact Me */
 .contact-container {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border: 3px solid var(--pink);
+  border: 3px solid var(--purple);
 }
 
 .left {
@@ -603,7 +623,6 @@ button:hover,
 .contact-form {
   background: white;
   border-radius: 10px;
-  padding: 20px;
 }
 
 .contact-form .form-label {
@@ -619,6 +638,15 @@ button:hover,
   height: 100%;
   object-fit: cover;
   border-radius: 0px 1rem 1rem 0px;
+}
+
+.call-me {
+  text-align: center;
+}
+
+.call-me img {
+  height: 200px;
+  margin: 0px;
 }
 
 /* Footer */

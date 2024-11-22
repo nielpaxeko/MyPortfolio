@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 export const NavBar = () => {
     const [activeLink, setActiveLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
+    // const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
         const onScroll = () => {
@@ -23,15 +23,15 @@ export const NavBar = () => {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    // Toggle dark mode
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-        if (!darkMode) {
-            document.body.classList.add("dark-mode");
-        } else {
-            document.body.classList.remove("dark-mode");
-        }
-    };
+    // // Toggle dark mode
+    // const toggleDarkMode = () => {
+    //     setDarkMode(!darkMode);
+    //     if (!darkMode) {
+    //         document.body.classList.add("dark-mode");
+    //     } else {
+    //         document.body.classList.remove("dark-mode");
+    //     }
+    // };
 
     const onUpdateActiveLink = (value) => {
         setActiveLink(value);

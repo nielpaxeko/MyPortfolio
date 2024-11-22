@@ -9,19 +9,22 @@ const projects = [
         id: 1,
         title: 'Rover',
         description: 'A social media site aimed at travelers that allows them to share their travel experiences with others.',
-        image: rover
+        image: rover,
+        link: ''
     },
     {
         id: 2,
         title: 'VayKay',
         description: 'A java based app made for users planning their next vacation. Features include flights search, itinerary creation as well as currency exchange and weather lookup.',
-        image: VayKay
+        image: VayKay,
+        link: ''
     },
     {
         id: 3,
         title: 'Globetrotter',
         description: 'A site that allows users to keep track of which cities and countries they have visited and want to visit.',
-        image: globetrotter
+        image: globetrotter,
+        link: 'https://globetrotter-pacheco.vercel.app'
     },
 ];
 
@@ -37,7 +40,20 @@ export const ProjectsSection = () => {
                             <Card className="h-100">
                                 <Card.Img variant="top" src={project.image} alt={project.title} />
                                 <Card.Body>
-                                    <Card.Title>{project.title}</Card.Title>
+                                    <Card.Title>
+                                        <a
+                                            href={project.link}
+                                            className='project-link'
+                                            onClick={(e) => {
+                                                if (project.link === '#') {
+                                                    e.preventDefault();
+                                                    alert('This project is not yet deployed.');
+                                                }
+                                            }}>
+                                            {project.title}
+                                        </a>
+
+                                    </Card.Title>
                                     <Card.Text>{project.description}</Card.Text>
                                 </Card.Body>
                             </Card>

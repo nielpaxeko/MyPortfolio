@@ -1,12 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
 
-// Function to dynamically import all images from the photos folder
+// Dynamically import all images from the photos folder to the iphone looking component I made
 const importAll = (r) => {
     return r.keys().map(r);
 };
-
-// Import all images from the photos folder
 const images = importAll(require.context('../assets/photos', false, /\.(png|jpe?g)$/));
 
 export const AboutMe = () => {
@@ -16,7 +14,7 @@ export const AboutMe = () => {
             <h3 className='text-center pink-text mb-5 subtitle'>Every journey begins with a single step!</h3>
             <Container>
                 <Row>
-                    <Col xs={0} md={6}>
+                    <Col xs={12} md={6}>
                         {/* Image Slider */}
                         <div className="image-slider-container">
                             <div className="notch">
@@ -38,7 +36,7 @@ export const AboutMe = () => {
                             </Carousel>
                         </div>
                     </Col>
-                    <Col xs={10} md={6} className='m-auto'>
+                    <Col xs={10} s={11} md={6} className='m-auto'>
                         <div className='about-text-container'>
                             <p className='about-text'>
                                 I am a software developer with a strong educational background in computer science and hands-on

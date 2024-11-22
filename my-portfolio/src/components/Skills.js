@@ -55,7 +55,7 @@ export const Skills = () => {
   );
 
   const [hoveredSkill, setHoveredSkill] = useState({ name: '', color: '#333' });
-  const [hoveredLanguage, setHoveredLanguage] = useState({ name: 'Linguistics Corner', color: '#b71e48', icon: world });
+  const [hoveredLanguage, setHoveredLanguage] = useState({ name: 'The Polyglot’s Shelf!', color: '#b71e48', icon: world });
 
   const [isPaused, setIsPaused] = useState(false);
   const angleRef = useRef(0);
@@ -142,7 +142,7 @@ export const Skills = () => {
           };
 
           return (
-            <div className="book subtitle" key={index} style={bookStyle} onMouseOut={() => setHoveredLanguage({ name: 'Linguistics Corner', color: '#b71e48', icon: world })} onMouseOver={() => setHoveredLanguage({ name: language.language, color: language.text, icon: language.icon })}>
+            <div className="book subtitle" key={index} style={bookStyle} onMouseOut={() => setHoveredLanguage({ name: 'The Polyglot’s Shelf!', color: '#b71e48', icon: world })} onMouseOver={() => setHoveredLanguage({ name: language.language, color: language.text, icon: language.icon })}>
               <p className='book-name'>
                 {language.name}
                 <img src={language.nation} alt={`${language.name} icon`} style={{ marginTop: '4px', width: '30px', height: '30px' }} />
@@ -158,7 +158,7 @@ export const Skills = () => {
   return (
     <section id="skills">
       <h2 className="text-center section-title red-text">My Skills</h2>
-      <h3 className='text-center pink-text mb-5'>Mend your garden, and the butterflies will come.</h3>
+      <h3 className='text-center pink-text mb-5 subtitle'>Mend your garden, and the butterflies will come</h3>
       <Row>
         <Col lg={6} className="technical-skills mb-lg-0">
           <div className="skill-wheel">
@@ -167,7 +167,7 @@ export const Skills = () => {
                 <Image src={skill.image} alt={skill.name} />
               </div>
             ))}
-            <div className="skill-center" style={{ fontSize: '30px', fontWeight: 'bold', color: hoveredSkill.color }}>
+            <div className="skill-center" style={{ color: hoveredSkill.color }}>
               {hoveredSkill.name ? hoveredSkill.name : (
                 <img src={spin} alt="Skill Animation" style={{ width: '100px', height: '100px' }} />
               )}
@@ -176,8 +176,8 @@ export const Skills = () => {
         </Col>
         <Col lg={6} className='linguistic-skills mt-lg-0'>
           {hoveredLanguage.name && (
-            <div className="hovered-language" style={{ fontSize: '30px', fontWeight: 'bold', color: hoveredLanguage.color }}>
-              {hoveredLanguage.name}
+            <div className="hovered-language" style={{ color: hoveredLanguage.color }}>
+              <p className='text-center'>{hoveredLanguage.name}</p>
               <img src={hoveredLanguage.icon} alt={`${hoveredLanguage.name} icon`} style={{ width: '40px', height: '40px' }} />
             </div>
           )}

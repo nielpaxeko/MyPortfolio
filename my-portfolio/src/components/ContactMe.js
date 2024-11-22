@@ -5,6 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import emailjs from 'emailjs-com';
 import contactImage from '../assets/images/contact-img.png'
+import callMe from '../assets/images/call-me.png'
 
 export const ContactMe = () => {
     const [formData, setFormData] = useState({
@@ -49,8 +50,9 @@ export const ContactMe = () => {
             <Container className="img-fluid rounded-4 contact-container">
                 <Row>
                     {/* Left Div */}
-                    <Col lg={6} className="left p-4">
+                    <Col lg={6} className="left p-4 pb-0">
                         <h2 className="text-center mb-3 pink-text" style={{ fontWeight: 'bold' }}>Let's Get in Touch</h2>
+
                         <Form onSubmit={handleSubmit} className="contact-form">
                             <Form.Group controlId="formName" className="mb-3">
                                 <Form.Label>Name</Form.Label>
@@ -109,9 +111,13 @@ export const ContactMe = () => {
                                 <button className="rounded-pill btn-pink" type="submit">
                                     Send Message
                                 </button>
+
                             </div>
                             {isSent && <Alert variant="success" className="mt-3 text-center">Message sent successfully!</Alert>}
                             {errorMessage && <Alert variant="danger" className="mt-3 text-center">{errorMessage}</Alert>}
+                            <div className="call-me">
+                                <img src={callMe} alt="call-me"></img>
+                            </div>
                         </Form>
                     </Col>
                     {/* Right Div */}
