@@ -70,6 +70,10 @@ section {
 
 .subtitle {
   font-family: var(--playful-font);
+  font-size: 1.25rem;
+  max-width: 80%;
+  text-align: center;
+  margin: auto;
 }
 
 .gradient {
@@ -502,6 +506,7 @@ button:hover,
   border-bottom: 10px solid #8b5e3c;
   width: 500px;
   margin: auto;
+  padding: 0px;
 }
 
 .book-name {
@@ -511,7 +516,7 @@ button:hover,
   padding-top: 5px;
   padding-bottom: 5px;
   width: 125%;
-  height: 80%;
+  height: 90%;
   border-top: 5px solid #8b5e3c;
   border-bottom: 5px solid #8b5e3c;
   margin-bottom: 0;
@@ -726,6 +731,14 @@ button:hover,
 
   .profile-image {
     margin-top: 20px;
+  }
+
+  .bookshelf {
+    width: 400px;
+  }
+
+  .book {
+    width: 45px;
   }
 
 

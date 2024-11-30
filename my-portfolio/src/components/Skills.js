@@ -11,7 +11,7 @@ import ReactImg from '../assets/images/react.png';
 import Python from '../assets/images/python-logo.png';
 import Java from '../assets/images/java-logo.png';
 import SQL from '../assets/images/sql-logo.png';
-import spin from '../assets/images/spin-me.webp';
+import spin from '../assets/images/spin-me.gif';
 // Language Icons
 import world from '../assets/images/languages/world.png';
 import spanish from '../assets/images/languages/spanish.png';
@@ -56,7 +56,6 @@ export const Skills = () => {
 
   const [hoveredSkill, setHoveredSkill] = useState({ name: '', color: '#333' });
   const [hoveredLanguage, setHoveredLanguage] = useState({ name: 'The Polyglot’s Shelf!', color: '#b71e48', icon: world });
-
   const [isPaused, setIsPaused] = useState(false);
   const angleRef = useRef(0);
   const animationRef = useRef();
@@ -64,7 +63,7 @@ export const Skills = () => {
   useEffect(() => {
     const skillIcons = document.querySelectorAll('.skill-icon');
     const totalSkills = skillIcons.length;
-    const radius = 180;
+    const radius = 160;
     const animationSpeed = 0.0075;
 
     const updatePositions = () => {
@@ -127,7 +126,7 @@ export const Skills = () => {
         {languages.map((language, index) => {
           const bookStyle = {
             backgroundColor: language.color,
-            height: `${language.proficiency * 50}px`,
+            height: `${language.proficiency * 45}px`,
             transform:
               language.name === 'ESP'
                 ? 'translate(-16px, -2.5px) rotate(+7.5deg)'
@@ -142,7 +141,7 @@ export const Skills = () => {
           };
 
           return (
-            <div className="book subtitle" key={index} style={bookStyle} onMouseOut={() => setHoveredLanguage({ name: 'The Polyglot’s Shelf!', color: '#b71e48', icon: world })} onMouseOver={() => setHoveredLanguage({ name: language.language, color: language.text, icon: language.icon })}>
+            <div className="book" key={index} style={bookStyle} onMouseOut={() => setHoveredLanguage({ name: 'The Polyglot’s Shelf!', color: '#b71e48', icon: world })} onMouseOver={() => setHoveredLanguage({ name: language.language, color: language.text, icon: language.icon })}>
               <p className='book-name'>
                 {language.name}
                 <img src={language.nation} alt={`${language.name} icon`} style={{ marginTop: '4px', width: '30px', height: '30px' }} />
